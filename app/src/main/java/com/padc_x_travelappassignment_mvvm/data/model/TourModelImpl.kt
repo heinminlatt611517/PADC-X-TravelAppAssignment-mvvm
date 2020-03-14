@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers
 
 object  TourModelImpl : BaseModel(),TourModel{
 
-    private val mDataBase: AppDatabase = AppDatabase.getNewDbInstance(context)
+
     private val countries = mTourApi.getAllCountries().map { it.data }
     private val tours = mTourApi.getAllTours().map { it.data }
 

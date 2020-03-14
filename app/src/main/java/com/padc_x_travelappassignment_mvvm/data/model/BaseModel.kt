@@ -1,6 +1,9 @@
 package com.padc_x_travelappassignment_mvvm.data.model
 
+import android.content.Context
 import com.padc_x_travelappassignment_mvvm.network.TourApi
+import com.padc_x_travelappassignment_mvvm.presistence.db.AppDatabase
+import com.padc_x_travelappassignment_mvvm.root.TravelApp
 import com.padc_x_travelappassignment_mvvm.utils.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -10,6 +13,7 @@ import java.util.concurrent.TimeUnit
 
 abstract class BaseModel {
     protected var mTourApi : TourApi
+    protected lateinit var mDataBase: AppDatabase
 
     init {
         val okHttpClient=OkHttpClient.Builder()
@@ -26,5 +30,9 @@ abstract class BaseModel {
             .build()
 
         mTourApi=retrofit.create(TourApi::class.java)
+    }
+
+    fun initDatabase(context : Context){
+        mDataBase= AppDatabase.getNewDbInstance(context)
     }
 }
