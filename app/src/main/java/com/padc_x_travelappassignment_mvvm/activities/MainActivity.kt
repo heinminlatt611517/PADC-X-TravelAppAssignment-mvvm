@@ -42,6 +42,6 @@ class MainActivity : BaseActivity() {
     }
 
     private fun print(){
-        
+
     }
 }
