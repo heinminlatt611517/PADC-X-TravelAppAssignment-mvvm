@@ -40,4 +40,8 @@ class MainActivity : BaseActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.flContainer,fragment).commit()
 
     }
+
+    private fun print(){
+        //testing git
+    }
 }
